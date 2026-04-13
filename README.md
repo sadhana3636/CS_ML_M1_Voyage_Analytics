@@ -1,132 +1,150 @@
-# -Productionization-of-ML-Systems
-🏨 Hybrid Hotel Recommendation System
-This project is a part of a Travel Capstone Project which implements a Hotel Recommendation System using a hybrid approach combining Collaborative Filtering and Content-Based Filtering. The final model is deployed as a Streamlit web application, allowing users to enter their user ID and receive top hotel recommendations.
 
-📁 Dataset Overview
-The dataset contains real user hotel bookings with the following features:
+# 🌍 Travel & Tourism ML Capstone Project : Voyage_Analytics
+# Productionization of ML Systems
 
-travelCode: Unique travel transaction ID
-userCode: Unique identifier for the user
-name: Hotel name
-place: Hotel location
-days: Duration of stay
-price: Cost per day
-total: Total cost paid
-date: Booking date
-✅ Key Features
-1. Data Cleaning & Preprocessing
-Removed missing or duplicated entries
-Converted date strings to proper datetime format
-Normalized textual and numerical values
-Counted number of unique users and hotels
-2. Collaborative Filtering (CF)
-Used Surprise library's KNNBasic algorithm
-Treated the total cost as an implicit rating
-Evaluated with RMSE (Root Mean Squared Error)
-Final model achieved RMSE ≈ 0.97
-3. Content-Based Filtering (CBF)
-Vectorized hotel names and places using TF-IDF
-Computed hotel similarity using cosine similarity
-Identified similar hotels based on user history
-4. Hybrid Recommender System
-Combined CF and CBF with a weighted score
-Final score = 70% CF prediction + 30% CBF similarity
-Produced better personalized hotel recommendations
-5. Streamlit Web Application
-Simple UI: Input user ID and get top hotel suggestions
-Built using streamlit and deployed via ngrok
-Real-time hotel recommendation system
-🚀 How to Run Locally
-Step 1: Install dependencies
-pip install pandas numpy scikit-learn streamlit pyngrok scikit-surprise
+## 📊 Business Context
 
+In the travel and tourism industry, data-driven decision-making can significantly enhance user experience and operational efficiency. This project leverages **data analytics and machine learning** to improve how travel services—such as flights and hotels—are analyzed, predicted, and recommended.
 
+The project integrates three core datasets:
 
-# Save the README content as a markdown file
+* **Users**
+* **Flights**
+* **Hotels**
 
-readme_content = """
-# 👤2. Gender Classification API using BERT
-
-This project is part of a larger **Travel & Tourism Capstone**, and focuses on predicting **gender from a person's name** using a deep learning model. The final system is accessible via a **REST API built with Flask**, trained in **Google Colab**, and deployed using **Docker**, **ngrok**, and **Jenkins**.
+Each dataset provides insights into customer behavior, travel patterns, and pricing dynamics. The goal is to build scalable ML systems while implementing **end-to-end MLOps practices**.
 
 ---
+## 🏗️ Project Workflow
 
-## 🧠 Project Highlights
-
-| Component         | Tool/Tech Used               |
-|------------------|------------------------------|
-| Model             | BERT (`bert-base-uncased`)   |
-| Training          | Google Colab (PyTorch)       |
-| API               | Flask REST API               |
-| Deployment        | Ngrok + Docker               |
-| CI/CD Automation  | Jenkins (with Jenkinsfile)   |
-| Monitoring        | Console + Screenshot Logs    |
+Data → Preprocessing → Model Training → API Deployment → Docker → Kubernetes → CI/CD → Monitoring
 
 ---
 
 ## 📁 Dataset Overview
 
-The dataset includes:
-- `name`: First name or full name
-- `gender`: Label (`Male` or `Female`)
+### 👤 Users Dataset
 
-Data Cleaning Steps:
-- Removed null/duplicate values
-- Normalized genders (lowercased)
-- Label-encoded gender: `0 = Female`, `1 = Male`
-
----
-
-## 🧪 Model Training
-
-- **Tokenizer**: `BertTokenizer`
-- **Model**: `BertForSequenceClassification`
-- **Accuracy Achieved**: ✅ **> 60%**
-- Fine-tuned on short name sequences
-- Trained in **Google Colab** using GPU (if available)
+* `code`: User ID
+* `company`: Associated company
+* `name`: User name
+* `gender`: Gender
+* `age`: Age
 
 ---
 
-## 🚀 How to Run This Project (Colab Flow)
+### ✈️ Flights Dataset
 
-### 1️⃣ Train & Save Model
-```python
-# Load dataset, preprocess
-# Tokenize names using BERT tokenizer
-# Train using BERT classifier head
-# Save model and tokenizer
-
-
-
-
-# ✈️ 3.Flight Price Prediction – Machine Learning Project
-
-This project aims to predict airline ticket prices using various features like airline, source, destination, total stops, and flight duration. The model was trained using **XGBoost Regressor** in Google Colab and deployed using **Gradio** on **Hugging Face Spaces**.
+* `travelCode`: Travel ID
+* `userCode`: Linked user ID
+* `from`: Origin
+* `to`: Destination
+* `flightType`: Class type
+* `price`: Ticket price
+* `time`: Duration
+* `distance`: Distance
+* `agency`: Booking agency
+* `date`: Travel date
 
 ---
 
-## 🚀 Project Highlights
+### 🏨 Hotels Dataset
 
-- ✅ Trained using real-world flight data
-- ✅ Cleaned and preprocessed in Colab
-- ✅ Trained with XGBoost Regressor
-- ✅ REST API using Flask (for local testing)
-- ✅ Frontend powered by Gradio
-- ✅ Deployed live on Hugging Face Spaces
-- ✅ Optional: Docker, Kubernetes, Jenkins, and MLflow compatible
-
----
-
-## 🧠 Technologies Used
-
-- Python
-- Pandas, Numpy
-- Scikit-learn, XGBoost
-- Gradio (for Hugging Face app)
-- Flask (for local REST API)
-- Docker (optional)
-- Kubernetes, Jenkins, MLflow (optional)
+* `travelCode`: Travel ID
+* `userCode`: Linked user ID
+* `name`: Hotel name
+* `place`: Location
+* `days`: Stay duration
+* `price`: Price per day
+* `total`: Total cost
+* `date`: Booking date
 
 ---
 
-## 🗂️ Project Structure
+## 🎯 Project Objectives
+
+### 🔹 1. Flight Price Prediction (Regression)
+
+* Built a regression model to predict flight prices
+* Performed feature engineering, model training, and validation
+* Focused on improving prediction accuracy
+
+---
+
+### 🔹 2. REST API Development
+
+* Developed a **Flask-based API**
+* Enabled real-time flight price predictions
+
+---
+
+### 🔹 3. Containerization (Docker)
+
+* Packaged the model using Docker
+* Ensured portability and reproducibility
+
+---
+
+### 🔹 4. Scalability with Kubernetes
+
+* Deployed model using Kubernetes
+* Handled scaling and load management
+
+---
+
+### 🔹 5. Workflow Automation (Apache Airflow)
+
+* Designed DAGs for data pipelines
+* Automated model workflows
+
+---
+
+### 🔹 6. CI/CD Pipeline (Jenkins)
+
+* Implemented automated build & deployment
+* Ensured continuous integration
+
+---
+
+### 🔹 7. Model Tracking (MLflow)
+
+* Tracked experiments and model versions
+* Enabled reproducible ML workflows
+
+---
+
+### 🔹 8. Gender Classification Model
+
+* Built a classification model using **BERT**
+* Predicted gender from names
+
+---
+
+### 🔹 9. Hotel Recommendation System
+
+* Developed a hybrid recommendation system
+* Combined **Collaborative + Content-Based Filtering**
+* Built an interactive **Streamlit dashboard**
+
+---
+
+## 💼 Business Impact
+
+* 📈 Improved decision-making for travel pricing
+* 🎯 Personalized hotel recommendations
+* ⚡ Real-time prediction systems via APIs
+* 🔄 Automated and scalable ML pipelines
+* 🚀 Production-ready ML deployment
+
+---
+
+## 🧠 Skills Demonstrated
+
+* Machine Learning (Regression, Classification, Recommendation Systems)
+* NLP (BERT)
+* MLOps (Docker, Kubernetes, Jenkins, Airflow, MLflow)
+* API Development (Flask)
+* Data Processing & Feature Engineering
+* Data Visualization (Streamlit)
+
+
